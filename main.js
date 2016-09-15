@@ -39,12 +39,7 @@ function createContact(event) {
   $list.append($row);
   $('.modal').modal('hide'); // hide the modal when submit
 
-  console.log('Add Contact clicked!');
-  // console.log('name:', name);
-  // console.log('email', email);
-  // console.log('phone',phone);
-  // console.log('address',address);
-  // console.log('dob', dob);
+  // console.log('Add Contact clicked!');
 }
 
 function createNewContact(name, email, phone, address, dob) {
@@ -78,9 +73,8 @@ function editContact(event) {
   $lastRow = event;
 
   editing = true;
-  console.log($target);
-  // console.log($target.closest('td.newName'));
-  // let me = 'me!'
+  // console.log($target);
+
   let name = $parent.find('td.name').html();
   let email = $parent.find('td.email').html();
   let phone = $parent.find('td.phone').html();
@@ -92,14 +86,5 @@ function editContact(event) {
   $newPhone.val(phone);
   $newAddress.val(address);
   $newDob.val(dob);
-
-  // removeContact(event);
-
-  // console.log('name:', name);
-  // console.log('email:', email);
-  // console.log('phone:', phone);
-  // console.log('address:', address);
-  // console.log('dob:', dob);
-
 
 }
