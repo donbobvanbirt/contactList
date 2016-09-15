@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact List</title>
+
+  <script src="//code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h1>Contact List</h1>
+    </div>
+
+    <div class="row">
+      <form class="form-inline" id="newContactForm">
+
+        <!-- name -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="newName" placeholder="Jane Doe" required>
+        </div>
+
+        <!-- email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="newEmail" placeholder="jane.doe@example.com">
+        </div>
+
+        <!-- phone -->
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control bfh-phone" id="newPhone" data-country="US" placeholder="234-567-8910">
+        </div>
+
+        <!-- address -->
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="address" class="form-control" id="newAddress" placeholder="123 Street Name">
+        </div>
+
+        <!-- DOB -->
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="newDob">
+        </div>
+
+        <!-- button -->
+        <button type="submit" class="btn btn-primary">Add Contact</button>
+      </form>
+    </div>
+
+    <!-- table head -->
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+        <!-- table to append new contacts -->
+        <tbody id='list'>
+        </tbody>
+
+      </table>
+    </div>
+
+    <!-- hidden template table -->
+    <table class="hidden">
+      <tbody>
+        <tr id="templateRow">
+          <td class="name"></td>
+          <td class="email"></td>
+          <td class="phone"></td>
+          <td class="address"></td>
+          <td class="dob"></td>
+          <td>
+            <button class="btn btn-sm btn-success edit">X</button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-danger delete">X</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</body>
+</html>
