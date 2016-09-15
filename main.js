@@ -36,7 +36,7 @@ function createContact(event) {
   let $row = createNewContact(name, email, phone, address, dob);
   $list.append($row);
 
-  // console.log('Add Contact clicked!');
+  console.log('Add Contact clicked!');
   // console.log('name:', name);
   // console.log('email', email);
   // console.log('phone',phone);
