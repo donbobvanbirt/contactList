@@ -1,4 +1,4 @@
-let $newContactForm, $newName, $newEmail, $newPhone, $newAddress, $newDob, $newList, $list;
+let $newContactForm, $newName, $newEmail, $newPhone, $newAddress, $newDob, $newList, $list, editing, $lastRow;
 
 $(document).ready(function() {
 
@@ -9,6 +9,8 @@ $(document).ready(function() {
   $newAddress = $('#newAddress');
   $newDob = $('#newDob');
   $list = $('#list');
+
+  editing = false;
 
   $('#newContactForm').on('submit', createContact);
 
@@ -35,6 +37,7 @@ function createContact(event) {
 
   let $row = createNewContact(name, email, phone, address, dob);
   $list.append($row);
+  $('.modal').modal('hide'); // hide the modal when submit
 
   console.log('Add Contact clicked!');
   // console.log('name:', name);
@@ -45,7 +48,11 @@ function createContact(event) {
 }
 
 function createNewContact(name, email, phone, address, dob) {
+
   let $row = $('#templateRow').clone(); // clone template row
+  if (editing) {
+    removeContact($lastRow);
+  }
 
   $row.children('.name').text(name);
   $row.children('.email').text(email);
@@ -55,6 +62,7 @@ function createNewContact(name, email, phone, address, dob) {
 
   $row.removeAttr('id');
   return $row;
+
 }
 
 // delete contact
@@ -67,6 +75,9 @@ function removeContact(event) {
 function editContact(event) {
   let $target = $(event.target);
   let $parent = $target.closest('tr');
+  $lastRow = event;
+
+  editing = true;
   console.log($target);
   // console.log($target.closest('td.newName'));
   // let me = 'me!'
@@ -82,7 +93,7 @@ function editContact(event) {
   $newAddress.val(address);
   $newDob.val(dob);
 
-  removeContact(event);
+  // removeContact(event);
 
   // console.log('name:', name);
   // console.log('email:', email);
